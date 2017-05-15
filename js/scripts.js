@@ -121,7 +121,7 @@ for (i=0; i<nbLettresPays; i++) {
 
 function indice(type) {
   if (type === '1ereLettre') {
-    document.getElementById('indice1ereLettre').innerText = '1ère lettre : ' + paysMystere[0];
+    document.getElementById('indice1ereLettre').innerText = '1ère lettre : ' + paysMystereAcc[0];
     // Et pourquoi ça me perd le style par contre.... je ne sais pas !
   }
   else if (type === 'voyelles') {
