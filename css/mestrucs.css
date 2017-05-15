@@ -40,6 +40,10 @@ input, li, strong {
   margin: 0.2em;
 }
 
+#guess {
+  width: 180px;
+}
+
 #indiceContinent, #indiceNbVoyelles, #indice1ereLettre {
   width: auto;
 }

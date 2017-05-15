@@ -83,6 +83,8 @@ for (i=0; i< paysMystere.length; i++) {
     mot.innerHTML += '<input type="text" size="1" maxlength="1" id="lettre' + i + '" name="lettre' + i + '" onkeyup="maj(' + i + ');">';
   }
 }
+// Ajout du bouton "j'ai trouvé"
+mot.innerHTML += '<a href=#><input type="text" id="guess" placeholder="J\'ai trouvé !" onClick="verifier()"></a>';
 
 // Passer les lettres en majuscules après saisie par utilisateur
 function maj(i) {
@@ -92,7 +94,7 @@ function maj(i) {
 // Remplir les cases si on clic sur une lettre du pays
 function remplir(lettre) {
   // seulement si on n'a pas dépassé le quota de clics !
-  if (nb < nbLettresPays) {
+  if (nb <= nbLettresPays) {
     // mais on doit
     for (i=0; i<nbLettresPays; i++) {
       if (lettre === paysMystereAcc[i].toUpperCase()) {
@@ -105,6 +107,25 @@ function remplir(lettre) {
     var bouton = document.getElementById(lettre);
     bouton.innerText = ' ';
     bouton.hide;
+  }
+}
+
+var voyelles = 0;
+for (i=0; i<nbLettresPays; i++) {
+  if ((paysMystereAcc[i].toUpperCase() === 'A') || (paysMystereAcc[i].toUpperCase() === 'E')
+      || (paysMystereAcc[i].toUpperCase() === 'I') || (paysMystereAcc[i].toUpperCase() === 'O')
+      || (paysMystereAcc[i].toUpperCase() === 'U') || (paysMystereAcc[i].toUpperCase() === 'Y')) {
+      voyelles += 1;
+    }
+  }
+
+function indice(type) {
+  if (type === '1ereLettre') {
+    document.getElementById('indice1ereLettre').innerText = '1ère lettre : ' + paysMystere[0];
+    // Et pourquoi ça me perd le style par contre.... je ne sais pas !
+  }
+  else if (type === 'voyelles') {
+    document.getElementById('indiceNbVoyelles').innerText = voyelles + ' voyelles';
   }
 }
 
@@ -131,6 +152,33 @@ function essais() {
     else {
       return;
     }
+  }
+}
+
+function verifier() {
+  var contenu = '';
+  for (i=0; i<paysMystere.length; i++) {
+    var id = 'lettre' + i;
+    contenu = contenu.concat(document.getElementById(id).value);
+  }
+  if (contenu===paysMystereAcc.toUpperCase()) {
+    document.getElementById('guess').placeholder = 'Bravo !';
+    document.getElementById('essais').innerText = 'C\'est fini !';
+    var reponse = document.getElementById('reponse');
+    var lienWiki = document.getElementById('lienWiki');
+    var p = document.createElement('p');
+    p.innerHTML = 'La réponse était : <strong>' + paysMystere +'</strong>';
+    reponse.appendChild(p);
+    var lien = document.createElement('a');
+    lien.href = urlWikiPays;
+    lien.target = "_blank";
+    lien.title = "Voir sur Wikipedia";
+    lien.appendChild(document.createTextNode('En savoir plus sur ce pays : (Wikipedia)'));
+    lienWiki.appendChild(lien);
+    document.getElementById('carte').style.backgroundImage = "url('" + urlGoogleMapPays + "')";
+  }
+  else {
+    alert('Mauvaise réponse !');
   }
 }
 
