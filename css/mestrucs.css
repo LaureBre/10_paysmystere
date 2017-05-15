@@ -1,0 +1,53 @@
+
+
+span {
+  margin: 0.2em;
+}
+
+h1 {
+  text-align: center;
+}
+
+#carte {
+    background:url('http://www.histgeo.ac-aix-marseille.fr/carto/projectionpolaire/projectionpolaire03.gif');
+    background-size:cover;
+    background-color: grey;
+    min-height: 100px;
+    border: 1px solid black;
+}
+
+legend {
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 0.8em;
+  margin: 0;
+}
+
+#note {
+  display: flex;
+  align-content: flex-end;
+}
+
+input, li, strong {
+  font-size: 2em;
+  width: 2em;
+  border: 1px ridge grey;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(235,220,180,0.8);
+  margin: 0.2em;
+}
+
+#indiceContinent, #indiceNbVoyelles, #indice1ereLettre {
+  width: auto;
+}
+
+li:first-of-type {
+  margin-left: 2px;
+}
+
+strong {
+  padding: 2px 1em;
+}

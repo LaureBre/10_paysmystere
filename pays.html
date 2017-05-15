@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+  <meta charset="utf-8">
+  <title>Jeu des pays</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/mestrucs.css">
+  <script>
+    function definirHauteur() {
+      var carte = document.getElementById('carte');
+      var largeurCarte = carte.offsetWidth;
+      var hauteurCarte = Math.round(largeurCarte/1.36);
+      var hauteurFenetre = window.outerHeight;
+      carte.style.height = Math.round(largeurCarte/1.36)+'px';
+    }
+  </script>
+<head>
+</head>
+
+<body class="container-fluid" onload="definirHauteur()" onresize="definirHauteur()">
+  <header class="row">
+    <div class="col-lg-12">
+      <h1>Le jeu des pays</h1>
+      <h2>Règle du jeu :</h2>
+      <p>Découvrez le nom d'un pays à la manière du pendu. Vous pouvez cliquer
+        autant de fois qu'il y a de lettres dans le mot, sur un lettre ou un
+        indice. Si vous pensez avoir trouvé, complétez vous-même et vérifiez !
+      </p>
+      <fieldset name="mot" id="mot">
+        <!-- remplissage javascript -->
+      </fieldset>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+      <!--  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>-->
+        <a class="navbar-brand" href="#">Quel est ce pays ?</a>
+      </div> <!-- navbar-header -->
+      <ul class="nav nav-pills liste">
+        <li id="A"><a href="#" onclick="remplir('A'); essais();">A</a></li>
+        <li id="B"><a href="#" onclick="remplir('B'); essais();">B</a></li>
+        <li id="C"><a href="#" onclick="remplir('C'); essais();">C</a></li>
+        <li id="D"><a href="#" onclick="remplir('D'); essais();">D</a></li>
+        <li id="E"><a href="#" onclick="remplir('E'); essais();">E</a></li>
+        <li id="F"><a href="#" onclick="remplir('F'); essais();">F</a></li>
+        <li id="G"><a href="#" onclick="remplir('G'); essais();">G</a></li>
+        <li id="H"><a href="#" onclick="remplir('H'); essais();">H</a></li>
+        <li id="I"><a href="#" onclick="remplir('I'); essais();">I</a></li>
+        <li id="J"><a href="#" onclick="remplir('J'); essais();">J</a></li>
+        <li id="K"><a href="#" onclick="remplir('K'); essais();">K</a></li>
+        <li id="L"><a href="#" onclick="remplir('L'); essais();">L</a></li>
+        <li id="M"><a href="#" onclick="remplir('M'); essais();">M</a></li>
+        <li id="N"><a href="#" onclick="remplir('N'); essais();">N</a></li>
+        <li id="O"><a href="#" onclick="remplir('O'); essais();">O</a></li>
+        <li id="P"><a href="#" onclick="remplir('P'); essais();">P</a></li>
+        <li id="Q"><a href="#" onclick="remplir('Q'); essais();">Q</a></li>
+        <li id="R"><a href="#" onclick="remplir('R'); essais();">R</a></li>
+        <li id="S"><a href="#" onclick="remplir('S'); essais();">S</a></li>
+        <li id="T"><a href="#" onclick="remplir('T'); essais();">T</a></li>
+        <li id="U"><a href="#" onclick="remplir('U'); essais();">U</a></li>
+        <li id="V"><a href="#" onclick="remplir('V'); essais();">V</a></li>
+        <li id="W"><a href="#" onclick="remplir('W'); essais();">W</a></li>
+        <li id="X"><a href="#" onclick="remplir('X'); essais();">X</a></li>
+        <li id="Y"><a href="#" onclick="remplir('Y'); essais();">Y</a></li>
+        <li id="Z"><a href="#" onclick="remplir('Z'); essais();">Z</a></li>
+        <li id="indiceContinent"><a href="#" onclick="indice('continent'); essais();">Continent</a></li>
+        <li id="indiceNbVoyelles"><a href="#" onclick="indice('voyelles'); essais();">Nombre voyelles</a></li>
+        <li id="indice1ereLettre"><a href="#" onclick="indice('1ereLettre'); essais();">Première lettre</a></li>
+      </ul>
+    </div> <!-- container-fluid -->
+  </nav>
+
+  <footer class="row">
+    <div class="col-sm-9 col-md-8 col-md-push-4 col-lg-7 col-lg-push-5" id="carte">
+      <legend>Extrait du site de l'académie d'Aix-Marseilles</legend>
+    </div>
+    <div class="col-sm-3 col-md-4 col-md-pull-8 col-lg-5 col-lg-pull-7">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <label>Décompte des clics : </label>
+            <button disabled="disabled" id="essais" size="1" maxlength="1">0</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <p><i>Nota bene</i> : Dans la liste des pays retenus pour ce jeu ne figurent pas les entités autonomes telles les Îles Féroé, Crète,...</p>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12" id="reponse">
+                <!-- emplacement pour la réponse -->
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-lg-12" id="lienWiki">
+            <!-- emplacement pour le lien -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/scripts.js"></script>
+  <!--<script src="js/creation.js"></script>-->
+</body>
+
+</html>

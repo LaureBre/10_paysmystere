@@ -1,0 +1,25 @@
+@media screen and (max-width: 767px) {
+  footer, #carte {
+    min-height: 500px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  footer, #carte {
+    width: 75%;
+    height: 550px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  footer, #carte {
+    min-height: 600px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  footer, #carte {
+    min-height: 500px;
+    margin-left: 15px;
+  }
+}
