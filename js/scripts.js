@@ -142,6 +142,7 @@ function indice(type) {
 }
 
 var nb = 0;
+document.getElementById('essais').innerText = nb + '/' + nbLettresPays;
 function essais() {
   while (nb < nbLettresPays) {
     nb += 1;
