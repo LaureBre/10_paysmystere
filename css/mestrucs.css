@@ -52,6 +52,12 @@ li:first-of-type {
   margin-left: 2px;
 }
 
-strong {
+em, strong {
   padding: 2px 1em;
+}
+
+em {
+  color: red;
+  text-decoration: none;
+  font-size: 2em;
 }

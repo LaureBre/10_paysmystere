@@ -84,7 +84,7 @@ for (i=0; i< paysMystere.length; i++) {
   }
 }
 // Ajout du bouton "j'ai trouvé"
-mot.innerHTML += '<a href=#><input type="text" id="guess" placeholder="J\'ai trouvé !" onClick="verifier()"></a>';
+mot.innerHTML += '<a href=# id="guess" onClick="verifier()">J\'ai trouvé !</a>';
 
 // Passer les lettres en majuscules après saisie par utilisateur
 function maj(i) {
@@ -95,8 +95,8 @@ function maj(i) {
 function remplir(lettre) {
   // seulement si on n'a pas dépassé le quota de clics !
   if (nb <= nbLettresPays) {
-    // mais on doit
-    for (i=0; i<nbLettresPays; i++) {
+    // mais on doit parcourir toutes les cases même sans lettre
+    for (i=0; i<paysMystere.length; i++) {
       if (lettre === paysMystereAcc[i].toUpperCase()) {
         var elem = document.getElementById('lettre' + i);
         elem.value = lettre;
@@ -122,7 +122,10 @@ for (i=0; i<nbLettresPays; i++) {
 function indice(type) {
   if (type === '1ereLettre') {
     document.getElementById('lettre0').value = paysMystereAcc[0];
-    // Et pourquoi ça me perd le style par contre.... je ne sais pas !
+    // cacher la l'indice
+    var indice = document.getElementById('indice' + type);
+    indice.innerText = ' ';
+    indice.hide;
   }
   else if (type === 'voyelles') {
     document.getElementById('labelVoyelles').innerText = voyelles + ' voyelles';
@@ -170,7 +173,7 @@ function verifier() {
     contenu = contenu.concat(document.getElementById(id).value);
   }
   if (contenu===paysMystereAcc.toUpperCase()) {
-    document.getElementById('guess').placeholder = 'Bravo !';
+    document.getElementById('guess').innerHTML = '<em>Bravo !</em>';
     document.getElementById('essais').innerText = 'C\'est fini !';
     var reponse = document.getElementById('reponse');
     var lienWiki = document.getElementById('lienWiki');
