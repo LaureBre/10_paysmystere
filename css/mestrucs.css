@@ -31,18 +31,34 @@ legend {
   align-content: flex-end;
 }
 
-input, li, strong {
-  font-size: 2em;
-  width: 2em;
+input, li, strong, button {
+  font-size: 1.8em;
   border: 1px ridge grey;
   border-radius: 10px;
   text-align: center;
-  background-color: rgba(235,220,180,0.8);
   margin: 0.2em;
 }
 
 #guess {
   width: 180px;
+}
+
+input {
+  background-color: rgba(215,220,240,0.8);
+  height: 2em;
+  width: 1.8em;
+}
+
+button {
+  height: 2em;
+  width: auto;
+}
+#rejouer {
+  background-color: rgba(235,180,140,0.8);
+}
+
+li {
+  background-color: rgba(235,230,180,0.8);
 }
 
 #indiceContinent, #indiceNbVoyelles, #indice1ereLettre {
