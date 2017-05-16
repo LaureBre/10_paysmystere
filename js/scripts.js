@@ -80,7 +80,7 @@ for (i=0; i< paysMystere.length; i++) {
     mot.innerHTML += '<input type="text" size="1" maxlength="1" style="background-color:grey" disabled="disabled" name="tiret' + i + '" placeholder="-">';
   }
   else {
-    mot.innerHTML += '<input type="text" size="1" maxlength="1" id="lettre' + i + '" name="lettre' + i + '" onkeyup="maj(' + i + ');">';
+    mot.innerHTML += '<input type="text" size="1" maxlength="1" id="lettre' + i + '" name="lettre' + i + '" onkeyup="maj(' + i + '); verifier()">';
   }
 }
 // Ajout du bouton "j'ai trouvé"
@@ -108,6 +108,7 @@ function remplir(lettre) {
     bouton.innerText = ' ';
     bouton.hide;
   }
+  verifier();
 }
 
 var voyelles = 0;
@@ -188,12 +189,15 @@ function verifier() {
     lienWiki.appendChild(lien);
     document.getElementById('carte').style.backgroundImage = "url('" + urlGoogleMapPays + "')";
   }
+  else if (contenu.length < paysMystere.length) {
+    return;
+  }
   else {
     alert('Mauvaise réponse !');
   }
 }
 
-if (nb < nbLettresPays) {}
+//if (nb < nbLettresPays) {}
   // seulement si on n'a pas dépassé le quota de clics !
 
 

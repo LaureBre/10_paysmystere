@@ -9,7 +9,8 @@ h1 {
 }
 
 #carte {
-    background:url('http://www.histgeo.ac-aix-marseille.fr/carto/projectionpolaire/projectionpolaire03.gif');
+    /* background:url('http://www.histgeo.ac-aix-marseille.fr/carto/projectionpolaire/projectionpolaire03.gif'); */
+    background-image: url('../images/CarteMondeDanielDalet.gif');
     background-size:cover;
     background-color: grey;
     min-height: 100px;
@@ -59,6 +60,7 @@ em, strong {
 em {
   color: red;
   text-decoration: none;
+  font-style: normal;
   font-size: 2em;
 }
 
