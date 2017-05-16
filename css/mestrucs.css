@@ -61,3 +61,7 @@ em {
   text-decoration: none;
   font-size: 2em;
 }
+
+header p {
+  font-size: 1.3em;
+}
